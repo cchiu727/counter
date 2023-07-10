@@ -24,7 +24,7 @@ span {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 15px;
     margin: 20px;
     flex-wrap: wrap;
 }
@@ -34,4 +34,10 @@ button {
     border: solid 2px black;
     border-radius: 5px;
     font-size: 24px;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: #0038A0;
 }

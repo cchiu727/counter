@@ -22,8 +22,8 @@ decreaseButton.addEventListener('click', function() {
 resetButton.addEventListener('click', function() {
     counterNum = 0;
     counter.innerHTML = counterNum;
-})
+});
 
 increaseButton.addEventListener('click', function() {
     incrCounter();
-})
+});

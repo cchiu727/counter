@@ -1,58 +1,68 @@
-var decreaseButton = document.getElementById('decrease-button');
-var resetButton = document.getElementById('reset-button');
-var increaseButton = document.getElementById('increase-button');
-var counterLabel = document.getElementById('counter');
-var Counter = /** @class */ (function () {
-    function Counter() {
+const decreaseButton: HTMLElement | null = document.getElementById('decrease-button');
+const resetButton: HTMLElement | null = document.getElementById('reset-button');
+const increaseButton: HTMLElement | null = document.getElementById('increase-button');
+const counterLabel: HTMLElement | null = document.getElementById('counter');
+
+class Counter {
+    private value: number;
+
+    constructor() {
         this.value = 0;
     }
-    Counter.prototype.setClass = function () {
+
+    setClass(): void {
         if (this.value > 0) {
             if (counterLabel) {
                 counterLabel.className = 'green';
-            }
+            }   
         }
         else if (this.value < 0) {
             if (counterLabel) {
                 counterLabel.className = 'red';
-            }
+            }   
         }
         else {
             if (counterLabel) {
                 counterLabel.className = '';
             }
         }
-    };
-    Counter.prototype.updateCounterLabel = function (val) {
+    }
+
+    updateCounterLabel(val: number): void {
         if (counterLabel) {
             counterLabel.innerHTML = val.toString();
         }
-    };
-    Counter.prototype.updateValue = function (step) {
+    }
+
+    updateValue(step: number): void {
         this.value += step;
         this.setClass();
         this.updateCounterLabel(this.value);
-    };
-    Counter.prototype.reset = function () {
+    }
+
+    reset(): void {
         this.value = 0;
         this.setClass();
         this.updateCounterLabel(this.value);
-    };
-    return Counter;
-}());
-var counter = new Counter();
+    }
+}
+
+let counter = new Counter();
+
 if (decreaseButton) {
-    decreaseButton.addEventListener('click', function () {
+    decreaseButton.addEventListener('click', function() {
         counter.updateValue(-1);
     });
 }
+
 if (resetButton) {
-    resetButton.addEventListener('click', function () {
+    resetButton.addEventListener('click', function() {
         counter.reset();
     });
 }
+
 if (increaseButton) {
-    increaseButton.addEventListener('click', function () {
+    increaseButton.addEventListener('click', function() {
         counter.updateValue(1);
     });
 }
